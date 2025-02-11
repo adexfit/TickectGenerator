@@ -7,7 +7,7 @@ import StepTwo from "./components/StepTwo";
 import StepThree from "./components/StepThree";
 
 function App() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
   const [title, setTitle] = useState("");
   const [progress, setProgress] = useState("33%");
 

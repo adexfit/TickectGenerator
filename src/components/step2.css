@@ -1,0 +1,70 @@
+.upload {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+form {
+  max-width: 100%;
+  padding-right: 24px;
+  margin-bottom: 0px;
+}
+
+label {
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.rectangle {
+  height: 200px;
+  min-width: 100%;
+  background-color: #041b20;
+}
+
+.p_upload {
+  margin-bottom: 0px;
+}
+.upload_box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #0e464f;
+  border-radius: 32px;
+  border: 1px solid #2096aa;
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 240px;
+  height: 240px;
+  text-align: center;
+  /* z-index: -99; */
+}
+
+input[type="email"],
+input[type="text"],
+textarea {
+  background-color: transparent;
+  outline: none;
+  padding: 12px;
+  border-radius: 12px;
+  width: 100%;
+  border: 1px solid #07373f;
+  margin-bottom: 32px;
+  color: #c9c9c9;
+  font-weight: "Roboto";
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+  .upload {
+    margin-bottom: 60px;
+  }
+
+  .p_upload {
+    margin-bottom: 29px;
+  }
+}

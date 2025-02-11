@@ -1,0 +1,25 @@
+.last_step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  text-align: center;
+  gap: 16px;
+}
+
+.last_step h1 {
+  margin: 0px;
+}
+
+.last_step p {
+  margin: 0px;
+  font-weight: "Roboto";
+  font-size: 16px;
+  color: #dbdbdb;
+}
+
+.monster {
+  background-image: url(../assets/monster.svg);
+  background-repeat: no-repeat;
+  height: 600px;
+}
