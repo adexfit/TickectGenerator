@@ -207,17 +207,6 @@ hr {
   display: none;
 }
 
-.selected {
-  /* background-color: red; */
-  /* border-color: #007bff; */
-  /* background: #e3f2fd; */
-  /* box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5); */
-}
-
-/* .card-content {
-  pointer-events: none; 
-} */
-
 .access_price {
   font-family: "Roboto";
   font-size: 24px;
@@ -289,7 +278,13 @@ select {
   align-items: center;
   flex: 1;
   cursor: pointer;
+  transition: all ease cubic-bezier(0.39, 0.575, 0.565, 1);
 }
+
+/* .btn_primary:hover {
+  background-color: transparent;
+  border: 1px solid #24a0b5;
+} */
 
 .btn_sec {
   padding: 12px 12px;

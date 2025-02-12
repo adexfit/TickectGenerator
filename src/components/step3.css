@@ -79,6 +79,12 @@ foreignObject {
   border-radius: 12px;
 }
 
+.image_upload_svg img {
+  width: 98px;
+  height: 98px;
+  object-fit: cover;
+}
+
 .inner_card3 {
   border: 1px solid #0e464f;
   background-color: #041e23;

@@ -7,16 +7,6 @@ import StepTwo from "./components/StepTwo";
 import StepThree from "./components/StepThree";
 import { AppContext } from "././context/AppContext";
 
-// import { app } from '../firebase';
-// import { CircularProgressbar } from 'react-circular-progressbar';
-//import 'react-circular-progressbar/dist/styles.css';
-// import {
-//   getDownloadURL,
-//   getStorage,
-//   ref,
-//   uploadBytesResumable,
-// } from 'firebase/storage';
-
 function App() {
   // const [step, setStep] = useState(1);
   const [title, setTitle] = useState("");

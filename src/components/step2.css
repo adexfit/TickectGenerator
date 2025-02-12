@@ -16,6 +16,10 @@ label {
   font-weight: 200;
 }
 
+input[type="file"] {
+  display: none;
+}
+
 .rectangle {
   height: 200px;
   min-width: 100%;
@@ -42,7 +46,9 @@ label {
   width: 240px;
   height: 240px;
   text-align: center;
+  cursor: pointer;
   /* z-index: -99; */
+  background-size: cover;
 }
 
 input[type="email"],

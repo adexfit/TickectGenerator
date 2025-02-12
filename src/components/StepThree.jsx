@@ -8,6 +8,9 @@ const StepThree = () => {
   const handleAnotherTicket = () => {
     setStep(1);
   };
+
+  const handleDownload = () => {};
+
   return (
     <div className="inner_card3">
       <section className="center_div">
@@ -91,7 +94,7 @@ const StepThree = () => {
               </p>
 
               <div className="image_upload_svg">
-                <img src={null} alt="" />
+                <img src={formData?.image.url} alt="" />
               </div>
 
               <div className="details_card">
@@ -132,7 +135,9 @@ const StepThree = () => {
         <button className="btn_sec" onClick={handleAnotherTicket}>
           Book Another Ticket
         </button>
-        <button className="btn_primary">Download Ticket</button>
+        <button className="btn_primary" onClick={handleDownload}>
+          Download Ticket
+        </button>
       </div>
     </div>
   );

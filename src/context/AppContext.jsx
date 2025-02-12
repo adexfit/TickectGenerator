@@ -13,6 +13,7 @@ function storedData() {
       email: "",
       fullname: "",
       request: "",
+      image: "",
     };
 
   return JSON.parse(storedVal);

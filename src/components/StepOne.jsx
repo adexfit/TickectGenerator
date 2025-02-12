@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 
+
 const StepOne = () => {
   const { step, setStep, formData, setFormData } = useContext(AppContext);
   const [selected, setSelected] = useState(formData.ticket_type);
