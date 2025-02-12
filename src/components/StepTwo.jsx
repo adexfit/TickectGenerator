@@ -97,7 +97,6 @@ const StepTwo = () => {
             className="upload_box"
             style={{ backgroundImage: `url(${formData.image.url})` }}
           >
-            upload
             <input
               type="file"
               onChange={handleUpload}
