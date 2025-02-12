@@ -131,9 +131,9 @@ const StepTwo = () => {
           value={formData.fullname}
           required
           aria-invalid={validName ? "false" : "true"}
-          aria-describedby="fullnameNote"
+          // aria-describedby="fullnameNote"
         />
-        <p
+        {/* <p
           id="fullnameNote"
           className={!validName ? "instructions" : "offscreen"}
         >
@@ -142,7 +142,7 @@ const StepTwo = () => {
           Must begin with a letter.
           <br />
           Letters, numbers, underscores, hyphens allowed.
-        </p>
+        </p> */}
         <br />
 
         <label htmlFor="email">Enter your email *</label>
@@ -156,7 +156,7 @@ const StepTwo = () => {
           value={formData.email}
           required
           aria-invalid={validEmail ? "false" : "true"}
-          aria-describedby="emailnote"
+          // aria-describedby="emailnote"
         />
 
         <label htmlFor="request">Special request?</label>
