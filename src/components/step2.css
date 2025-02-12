@@ -3,9 +3,10 @@
   margin-bottom: 40px;
 }
 
-form {
+.form2 {
+  /* align-items: center; */
   max-width: 100%;
-  padding-right: 24px;
+  padding-right: 24px !important;
   margin-bottom: 0px;
 }
 
