@@ -127,6 +127,13 @@ foreignObject {
   align-self: flex-end;
 }
 
+#ticket_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @media only screen and (max-width: 992px) {
   .inner_card3 {
     border: none;

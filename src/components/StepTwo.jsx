@@ -67,7 +67,12 @@ const StepTwo = () => {
       setStep(3);
       setFixError("");
     } else {
-      setFixError("Please provide valid inputs to all fields above");
+      setTimeout(
+        setFixError(
+          "Please provide valid inputs to all fields above and try again"
+        ),
+        5000
+      );
     }
   };
   const handleBackToOne = () => {
