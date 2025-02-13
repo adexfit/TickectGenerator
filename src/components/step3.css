@@ -143,8 +143,17 @@ foreignObject {
     width: 250px;
   }
 
+  .last_step {
+    padding: 0px 12px;
+  }
+  .last_step h1 {
+    margin-bottom: 0px;
+    font-size: 20px;
+  }
+
   .last_step p {
     margin-bottom: 0px;
+    font-size: 16px;
   }
 
   .center_div {
@@ -153,6 +162,6 @@ foreignObject {
 
   .space_up {
     /* margin-top: 32px; */
-    padding: 0px 24px;
+    padding: -1px 24px;
   }
 }

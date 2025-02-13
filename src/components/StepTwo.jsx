@@ -119,20 +119,22 @@ const StepTwo = () => {
       <hr />
 
       <form className="from2">
-        <label htmlFor="fullname">Enter your name</label>
-        <br />
-        <br />
-        <input
-          type="text"
-          id="fullname"
-          name="fullname"
-          onChange={handleChange}
-          value={formData.fullname}
-          required
-          aria-invalid={validName ? "false" : "true"}
-          // aria-describedby="fullnameNote"
-        />
-        {/* <p
+        <div className="form-control">
+          <label htmlFor="fullname">Enter your name</label>
+          <br />
+          <br />
+          <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            onChange={handleChange}
+            value={formData.fullname}
+            required
+            aria-invalid={validName ? "false" : "true"}
+            // aria-describedby="fullnameNote"
+          />
+          <small>full name error message</small>
+          {/* <p
           id="fullnameNote"
           className={!validName ? "instructions" : "offscreen"}
         >
@@ -142,32 +144,40 @@ const StepTwo = () => {
           <br />
           Letters, numbers, underscores, hyphens allowed.
         </p> */}
+        </div>
+
         <br />
 
-        <label htmlFor="email">Enter your email *</label>
-        <br />
-        <br />
-        <input
-          type="email"
-          id="email"
-          name="email"
-          onChange={handleChange}
-          value={formData.email}
-          required
-          aria-invalid={validEmail ? "false" : "true"}
-          // aria-describedby="emailnote"
-        />
+        <div class="form-control">
+          <label htmlFor="email">Enter your email *</label>
+          <br />
+          <br />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            onChange={handleChange}
+            value={formData.email}
+            required
+            aria-invalid={validEmail ? "false" : "true"}
+            // aria-describedby="emailnote"
+          />
+          <small>mail error message</small>
+        </div>
 
-        <label htmlFor="request">Special request?</label>
-        <br />
-        <br />
-        <textarea
-          name="request"
-          rows="10"
-          cols="30"
-          onChange={handleChange}
-          value={formData.request}
-        ></textarea>
+        <div className="form-control">
+          <label htmlFor="request">Special request?</label>
+          <br />
+          <br />
+          <textarea
+            name="request"
+            rows="10"
+            cols="30"
+            onChange={handleChange}
+            value={formData.request}
+          ></textarea>
+          <small>request error message</small>
+        </div>
       </form>
 
       <div className="space_up btn_wrap">
