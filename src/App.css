@@ -244,6 +244,7 @@ select {
   background-color: #08252b;
   color: #fff;
   outline: none;
+  cursor: pointer;
 }
 
 select {

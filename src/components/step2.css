@@ -87,6 +87,13 @@ textarea:focus {
   border: 2px solid #2096aa;
 }
 
+input[type="email"]:hover,
+input[type="text"]:hover,
+textarea:hover,
+select:hover {
+  background-color: #003e49;
+}
+
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) {
   .upload {

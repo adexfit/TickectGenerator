@@ -34,7 +34,6 @@ const StepTwo = () => {
     } else {
       setUploadErr("");
     }
-    // const user_test = USER_REGEX.test(formData.fullname);
 
     if (formData.fullname.length < 4) {
       setuserNameErr("Please provide a valid user name");
@@ -57,8 +56,6 @@ const StepTwo = () => {
       emailRef.current.focus();
     }
 
-    console.log(formData);
-    console.log(formData.image.url.length);
     if (
       email_test &&
       formData.fullname.length > 3 &&
