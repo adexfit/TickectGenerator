@@ -5,38 +5,70 @@ import { AppContext } from "../context/AppContext";
 import loading from "../assets/loading.gif";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const EMAIL_REGEX =
+  /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 
 const StepTwo = () => {
   const { step, setStep, formData, setFormData } = useContext(AppContext);
   const [isUploading, setIsUploading] = useState(false);
-  const userRef = useRef();
-  const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState(false);
-  const [validName, setValidName] = useState(false);
-  const [validEmail, setValidEmail] = useState(false);
-  const errRef = useRef();
+  const [emailErr, setEmailErr] = useState("");
+  const [userNameErr, setuserNameErr] = useState("");
+  const [uploadErr, setUploadErr] = useState("");
+  const [fixError, setFixError] = useState("");
+  const userNameRef = useRef();
+  const emailRef = useRef();
 
-  useEffect(() => {}, [formData.fullname]);
+  useEffect(() => {
+    if (formData.image.length < 2) {
+      setUploadErr("Please upload a picture");
+    } else {
+      setUploadErr("");
+    }
+  }, [formData]);
 
   const handleCheckStepTwo = (e) => {
     e.preventDefault();
 
-    const user_test = USER_REGEX.test(formData.fullname);
-    const email_test = EMAIL_REGEX.test(formData.email);
+    if (formData.image.url.length < 2) {
+      setUploadErr("Please upload a picture");
+    } else {
+      setUploadErr("");
+    }
+    // const user_test = USER_REGEX.test(formData.fullname);
 
-    // if (!user_test) {
-    //   console.log("invalid user name");
-    // }
-    // return;
+    if (formData.fullname.length < 4) {
+      setuserNameErr("Please provide a valid user name");
+    } else {
+      setuserNameErr("");
+    }
 
-    // if (!email_test) {
-    //   console.log("invalid user email");
-    // }
-    // return;
+    const email_test = EMAIL_REGEX.test(formData.email.trim());
+    if (!email_test) {
+      setEmailErr("Please provide a valid email");
+    } else {
+      setEmailErr("");
+    }
+
+    if (userNameErr != "" && emailErr != "") {
+      userNameRef.current.focus();
+    } else if (userNameErr != "") {
+      userNameRef.current.focus();
+    } else if (emailErr != "") {
+      emailRef.current.focus();
+    }
 
     console.log(formData);
-    setStep(3);
+    console.log(formData.image.url.length);
+    if (
+      email_test &&
+      formData.fullname.length > 3 &&
+      formData.image.url.length > 5
+    ) {
+      setStep(3);
+      setFixError("");
+    } else {
+      setFixError("Please provide valid inputs to all fields above");
+    }
   };
   const handleBackToOne = () => {
     // e.target.prevenDefault();
@@ -48,6 +80,18 @@ const StepTwo = () => {
       ...previousValues,
       [event.target.name]: event.target.value,
     }));
+
+    if (event.target.value.length < 4) {
+      setuserNameErr("Please provide a valid user name");
+    } else {
+      setuserNameErr("");
+    }
+    const email_test = EMAIL_REGEX.test(formData.email.trim());
+    if (!email_test) {
+      setEmailErr("Please provide a valid email");
+    } else {
+      setEmailErr("");
+    }
   };
 
   const handleUpload = async (e) => {
@@ -69,7 +113,7 @@ const StepTwo = () => {
     );
 
     const uploadedImageUrl = await res.json();
-    console.log(uploadedImageUrl.url);
+    // console.log(uploadedImageUrl.url);
 
     setFormData((previousValues) => ({
       ...previousValues,
@@ -80,15 +124,8 @@ const StepTwo = () => {
 
   return (
     <div className="inner_card">
-      <p
-        ref={errRef}
-        className={errMsg ? "errmsg" : "offscreen"}
-        aria-live="assertive"
-      >
-        {errMsg}
-      </p>
       <div className="upload">
-        <p className="p_upload">Upload Profile Photo</p>
+        <p className="p_upload">Upload Profile Photo*</p>
         <br />
 
         <label id="image-label" htmlFor="upload_box">
@@ -115,12 +152,15 @@ const StepTwo = () => {
         </label>
         <div className="rectangle"></div>
       </div>
+      <p id="uploadError">
+        <small aria-live="assertive">{uploadErr}</small>
+      </p>
 
       <hr />
 
       <form className="from2">
         <div className="form-control">
-          <label htmlFor="fullname">Enter your name</label>
+          <label htmlFor="fullname">Enter your name *</label>
           <br />
           <br />
           <input
@@ -130,25 +170,16 @@ const StepTwo = () => {
             onChange={handleChange}
             value={formData.fullname}
             required
-            aria-invalid={validName ? "false" : "true"}
-            // aria-describedby="fullnameNote"
+            aria-invalid={userNameErr == "" ? "true" : "false"}
+            aria-describedby="fullnameNote"
+            ref={userNameRef}
           />
-          <small>full name error message</small>
-          {/* <p
-          id="fullnameNote"
-          className={!validName ? "instructions" : "offscreen"}
-        >
-          4 to 24 characters.
-          <br />
-          Must begin with a letter.
-          <br />
-          Letters, numbers, underscores, hyphens allowed.
-        </p> */}
+          <small aria-live="assertive">{userNameErr}</small>
         </div>
 
         <br />
 
-        <div class="form-control">
+        <div className="form-control">
           <label htmlFor="email">Enter your email *</label>
           <br />
           <br />
@@ -159,10 +190,10 @@ const StepTwo = () => {
             onChange={handleChange}
             value={formData.email}
             required
-            aria-invalid={validEmail ? "false" : "true"}
-            // aria-describedby="emailnote"
-          />
-          <small>mail error message</small>
+            ref={emailRef}
+          />{" "}
+          <br />
+          <small aria-live="assertive">{emailErr}</small>
         </div>
 
         <div className="form-control">
@@ -176,7 +207,6 @@ const StepTwo = () => {
             onChange={handleChange}
             value={formData.request}
           ></textarea>
-          <small>request error message</small>
         </div>
       </form>
 
@@ -187,6 +217,9 @@ const StepTwo = () => {
         <button className="btn_primary" onClick={handleCheckStepTwo}>
           Get My Free Ticket
         </button>
+      </div>
+      <div className="error">
+        <small>{fixError}</small>
       </div>
     </div>
   );

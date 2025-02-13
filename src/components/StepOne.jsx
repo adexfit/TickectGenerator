@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 
-
 const StepOne = () => {
   const { step, setStep, formData, setFormData } = useContext(AppContext);
   const [selected, setSelected] = useState(formData.ticket_type);
@@ -136,6 +135,7 @@ const StepOne = () => {
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
+                <option value="4">4</option>
               </select>
             </div>
           </form>

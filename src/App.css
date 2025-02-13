@@ -278,13 +278,14 @@ select {
   align-items: center;
   flex: 1;
   cursor: pointer;
-  transition: all ease cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: all ease cubic-bezier(0.39, 0.575, 0.565, 4);
 }
 
-/* .btn_primary:hover {
-  background-color: transparent;
+.btn_primary:hover,
+.btn_sec:hover {
+  background-color: #00404b;
   border: 1px solid #24a0b5;
-} */
+}
 
 .btn_sec {
   padding: 12px 12px;
@@ -303,6 +304,14 @@ select {
 
 .form2 {
   box-sizing: border-box;
+}
+
+.error {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: #ff8e93;
+  margin-top: 24px;
 }
 
 /* Extra small devices (phones, 600px and down) */

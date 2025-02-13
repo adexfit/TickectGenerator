@@ -51,6 +51,11 @@ input[type="file"] {
   background-size: cover;
 }
 
+#uploadError {
+  margin-top: -35px;
+  color: rgb(255, 106, 106);
+}
+
 input[type="email"],
 input[type="text"],
 textarea {
@@ -90,5 +95,19 @@ textarea:focus {
 
   .p_upload {
     margin-bottom: 29px;
+  }
+
+  input[type="email"],
+  input[type="text"],
+  textarea {
+    background-color: transparent;
+    outline: none;
+    padding: 12px;
+    border-radius: 12px;
+    width: 90%;
+    border: 1px solid #07373f;
+    margin-bottom: 4px;
+    color: #c9c9c9;
+    font-weight: "Roboto";
   }
 }
