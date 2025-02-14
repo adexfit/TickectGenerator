@@ -1,22 +1,32 @@
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 
-export const generatePDF = async (elementToPrintId) => {
+export const generatePDF = (elementToPrintId) => {
   const element = document.getElementById(elementToPrintId);
   if (!element) {
     throw new Error(`Element with id ${elementToPrintId} not found`);
   }
-  const canvas = await html2canvas(element, { scale: 2 });
-  const data = canvas.toDataURL("image/png");
-  const pdf = new jsPDF({
-    orientation: "p",
-    unit: "px",
-    format: [300, 600],
-  });
-  const imgProperties = pdf.getImageProperties(data);
-  const pdfWidth = pdf.internal.pageSize.getWidth();
-  const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+  html2canvas(element, {
+    useCORS: true,
+    allowTaint: true,
+    scrollY: -window.scrollY,
+  }).then((canvas) => {
+    const image = canvas.toDataURL("image/jpeg", 1.0);
+    const doc = new jsPDF("p", "px", "a4");
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
 
-  pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
-  pdf.save("print.pdf");
+    const widthRatio = pageWidth / canvas.width;
+    const heightRatio = pageHeight / canvas.height;
+    const ratio = widthRatio > heightRatio ? heightRatio : widthRatio;
+
+    const canvasWidth = canvas.width * ratio;
+    const canvasHeight = canvas.height * ratio;
+
+    const marginX = (pageWidth - canvasWidth) / 2;
+    const marginY = (pageHeight - canvasHeight) / 2;
+
+    doc.addImage(image, "JPEG", marginX, marginY, canvasWidth, canvasHeight);
+    doc.output("dataurlnewwindow");
+  });
 };

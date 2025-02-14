@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import "../components/step3.css";
 import Bar_code from "../assets/Bar_code.png";
 import { AppContext } from "../context/AppContext";
@@ -12,12 +12,12 @@ const StepThree = () => {
 
   return (
     <div className="inner_card3">
-      <section className="center_div">
+      <section className="center_div" id="ticket_card">
         <div className="last_step">
           <h1>Your Ticket is Booked!</h1>
           <p>Check your email for a copy or you can download</p>
         </div>
-        <div id="ticket_card">
+        <section>
           <svg
             width="300"
             height="600"
@@ -129,7 +129,7 @@ const StepThree = () => {
               </div>
             </foreignObject>
           </svg>
-        </div>
+        </section>
       </section>
       <div className="space_up btn_wrap">
         <button className="btn_sec" onClick={handleAnotherTicket}>
