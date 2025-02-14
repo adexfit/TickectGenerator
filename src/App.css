@@ -80,6 +80,11 @@ span a:hover {
   border: none;
 }
 
+.btn_nav:hover {
+  background-color: #197686;
+  color: #fafafa;
+}
+
 .logodiv {
   display: flex;
   flex: 1;
@@ -244,7 +249,7 @@ hr {
 
 select {
   width: 100%;
-  padding: 16px 20px;
+  padding: 16px 10px;
   border: 1px solid #07373f;
   border-radius: 12px;
   background-color: #08252b;
