@@ -8,16 +8,9 @@ import StepThree from "./components/StepThree";
 import { AppContext } from "././context/AppContext";
 
 function App() {
-  // const [step, setStep] = useState(1);
   const [title, setTitle] = useState("");
   const [progress, setProgress] = useState("33%");
   const { step, setStep, formData, setFormData } = useContext(AppContext);
-
-  // if (!formData.username || !formData.email || !formData.password) {
-  //   return setErrorMessage('Please fill out all fields.');
-  // }
-
-  // const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     if (step == 1) {

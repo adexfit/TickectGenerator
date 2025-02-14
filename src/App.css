@@ -280,7 +280,7 @@ select {
 }
 
 .btn_primary {
-  padding: 12px 12px;
+  padding: 17px 12px;
   border-radius: 8px;
   background-color: #24a0b5;
   color: #fff;
@@ -302,7 +302,7 @@ select {
 }
 
 .btn_sec {
-  padding: 12px 12px;
+  padding: 17px 12px;
   border-radius: 8px;
   background-color: transparent;
   color: #fff;
