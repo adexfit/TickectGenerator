@@ -351,7 +351,7 @@ select {
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) {
   .inner_card {
-    border: 1px solid #0e464f;
+    border: none !important;
     margin-top: 32px;
     padding: 0 0px 24px 0px;
     border-radius: 32px;

@@ -161,11 +161,11 @@ export default StepOne;
 //   }
 //   const canvas = await html2canvas(element, { scale: 2 });
 //   const data = canvas.toDataURL("image/png");
-//   const pdf = new jsPDF({
-//     orientation: "p",
-//     unit: "px",
-//     format: [300, 600],
-//   });
+// const pdf = new jsPDF({
+//   orientation: "p",
+//   unit: "px",
+//   format: [300, 600],
+// });
 //   const imgProperties = pdf.getImageProperties(data);
 //   const pdfWidth = pdf.internal.pageSize.getWidth();
 //   const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
