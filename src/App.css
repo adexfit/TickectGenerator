@@ -78,6 +78,8 @@ span a:hover {
   gap: 8px;
   outline: none;
   border: none;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
 }
 
 .btn_nav:hover {
