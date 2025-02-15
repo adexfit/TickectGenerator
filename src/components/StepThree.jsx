@@ -3,6 +3,7 @@ import "../components/step3.css";
 import Bar_code from "../assets/Bar_code.png";
 import { AppContext } from "../context/AppContext";
 import { generatePDF } from "../utils/generatePdf";
+import html2canvas from "html2canvas";
 
 const StepThree = () => {
   const { step, setStep, formData, setFormData } = useContext(AppContext);
@@ -19,6 +20,24 @@ const StepThree = () => {
     setStep(1);
   };
 
+  const takePicture = async () => {
+    const target_element = document.getElementById("take_picture");
+    if (!target_element) {
+      return;
+    }
+    await html2canvas(target_element)
+      .then((canvas) => {
+        let image = canvas.toDataURL("image/jpeg");
+        const a = document.createElement("a");
+        a.href = image;
+        a.download = "Ticket.jpeg";
+        a.click();
+      })
+      .catch((err) => {
+        console.log("Got an error");
+      });
+  };
+
   return (
     <div className="inner_card3">
       <section className="center_div" id="ticket_card">
@@ -26,7 +45,7 @@ const StepThree = () => {
           <h1>Your Ticket is Booked!</h1>
           <p>Check your email for a copy or you can download</p>
         </div>
-        <section>
+        <section id="take_picture">
           <svg
             width="300"
             height="600"
@@ -153,15 +172,14 @@ const StepThree = () => {
         <button className="btn_sec" onClick={handleAnotherTicket}>
           Book Another Ticket
         </button>
-        <button
-          className="btn_primary"
-          onClick={() => generatePDF("ticket_card")}
-        >
+        <button className="btn_primary" onClick={takePicture}>
           Download Ticket
         </button>
       </div>
     </div>
   );
 };
+
+//generatePDF("ticket_card")
 
 export default StepThree;
