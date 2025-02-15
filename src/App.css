@@ -126,6 +126,9 @@ span a:hover {
 }
 
 .inner_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border: 1px solid #0e464f;
   margin-top: 32px;
   padding: 24px;
@@ -353,12 +356,24 @@ select {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) {
-  .inner_card {
+  /* .inner_card {
     border: none !important;
     margin-top: 32px;
     padding: 0 0px 24px 0px;
     border-radius: 32px;
+  } */
+
+  .inner_card {
+    display: flex;
+    border: none !important;
+    margin-top: 32px;
+    padding: 0 0px 24px 0px;
+    border-radius: 32px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
+
   .card_title h2 {
     font-size: 24px;
   }
