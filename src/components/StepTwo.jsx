@@ -19,7 +19,7 @@ const StepTwo = () => {
   const emailRef = useRef();
 
   useEffect(() => {
-    if (formData.image.url?.length < 2) {
+    if (formData.image == "" < 2) {
       setUploadErr("Please upload a picture");
     } else {
       setUploadErr("");
@@ -38,7 +38,10 @@ const StepTwo = () => {
   const handleCheckStepTwo = (e) => {
     e.preventDefault();
 
-    if (formData.image.url?.length < 2) {
+    console.log(formData.image.url?.length);
+    console.log(formData);
+
+    if (formData.image == "") {
       setUploadErr("Please upload a picture");
     } else {
       setUploadErr("");
