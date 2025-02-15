@@ -28,7 +28,15 @@ input[type="file"] {
 
 .p_upload {
   margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
 }
+
+.p_upload p {
+  align-self: flex-start;
+  text-align: left;
+}
+
 .upload_box {
   display: flex;
   flex-direction: column;

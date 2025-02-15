@@ -356,13 +356,6 @@ select {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) {
-  /* .inner_card {
-    border: none !important;
-    margin-top: 32px;
-    padding: 0 0px 24px 0px;
-    border-radius: 32px;
-  } */
-
   .inner_card {
     display: flex;
     border: none !important;
@@ -370,7 +363,7 @@ select {
     padding: 0 0px 24px 0px;
     border-radius: 32px;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column;
   }
 
@@ -417,6 +410,7 @@ select {
   .btn_wrap {
     display: grid;
     grid-template-columns: 1fr;
+    width: 100%;
   }
 
   .btn_primary,
