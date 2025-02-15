@@ -176,6 +176,7 @@ const StepTwo = () => {
             aria-invalid={userNameErr == "" ? "true" : "false"}
             aria-describedby="fullnameNote"
             ref={userNameRef}
+            maxLength={30}
           />
           <small aria-live="assertive">{userNameErr}</small>
         </div>
@@ -195,6 +196,7 @@ const StepTwo = () => {
             required
             ref={emailRef}
             autoComplete="nope"
+            maxLength={30}
           />{" "}
           <br />
           <small aria-live="assertive">{emailErr}</small>

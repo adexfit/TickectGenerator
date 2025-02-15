@@ -108,7 +108,11 @@ const StepThree = () => {
                     </div>
                     <div className="right">
                       <p>Enter your email *</p>
-                      <p className="bold">{formData.email}</p>
+                      <p className="bold">
+                        {formData.email.length > 20
+                          ? formData.email.slice(0, 20) + "..."
+                          : formData.email}
+                      </p>
                     </div>
                   </div>
                   <div className="grid">
