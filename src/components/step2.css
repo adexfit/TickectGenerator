@@ -22,7 +22,8 @@ input[type="file"] {
 
 .rectangle {
   height: 200px;
-  min-width: 100%;
+  min-width: 300px;
+  width: 100%;
   background-color: #041b20;
 }
 
@@ -110,6 +111,11 @@ select:hover {
 
   .p_upload {
     margin-bottom: 29px;
+  }
+
+  .upload_box {
+    top: 63%;
+    left: 50%;
   }
 
   input[type="email"],

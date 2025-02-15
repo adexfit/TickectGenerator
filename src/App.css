@@ -363,7 +363,7 @@ select {
     padding: 0 0px 24px 0px;
     border-radius: 32px;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     flex-direction: column;
   }
 
