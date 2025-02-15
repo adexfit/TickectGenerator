@@ -150,6 +150,9 @@ span a:hover {
   /* border: 1px solid #07373f; */
   border-radius: 24px;
   padding-top: 24px;
+  border-left: 1px solid #07373f;
+  border-right: 1px solid #07373f;
+  border-bottom: 1px solid #07373f;
 }
 
 .address_card h1 {

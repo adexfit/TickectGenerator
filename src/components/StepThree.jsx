@@ -100,7 +100,11 @@ const StepThree = () => {
                   <div className="grid">
                     <div className="left">
                       <p>Enter your name</p>
-                      <p className="bold">{formData.fullname}</p>
+                      <p className="bold">
+                        {formData.fullname.length > 15
+                          ? formData.fullname.slice(0, 10) + "..."
+                          : formData.fullname}
+                      </p>
                     </div>
                     <div className="right">
                       <p>Enter your email *</p>
