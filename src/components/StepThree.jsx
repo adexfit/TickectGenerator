@@ -136,8 +136,9 @@ const StepThree = () => {
                   </div>
                   <p className="card_title">Special request</p>
                   <p className="bold">
-                    Nil ? Or the users sad story they write in there gets this
-                    whole space, Max of three rows
+                    {formData.request == ""
+                      ? "Nil"
+                      : formData.request.slice(0, 20)}
                   </p>
                 </div>
               </div>
