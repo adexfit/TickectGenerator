@@ -7,6 +7,15 @@ import { generatePDF } from "../utils/generatePdf";
 const StepThree = () => {
   const { step, setStep, formData, setFormData } = useContext(AppContext);
   const handleAnotherTicket = () => {
+    setFormData({
+      step: "1",
+      number_of_ticket: "1",
+      ticket_type: "REGULAR",
+      email: "",
+      fullname: "",
+      request: "",
+      image: "",
+    });
     setStep(1);
   };
 
